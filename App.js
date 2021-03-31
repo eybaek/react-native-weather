@@ -7,7 +7,9 @@ const API_KEY = "4950e2f73bf25e74fdb2879266b095b5";
 export default class App extends Component{
   state = {
     isLoaded: false,
-    error: null
+    error: null,
+    temperature: null,
+    name: null
   };
   componentDidMount() {
     navigator.geolocation.getCurrentPosition(position => {
@@ -26,16 +28,21 @@ export default class App extends Component{
     .then(response => response.json())
     .then(json => {
       console.log(json);
+      this.setState({
+        temperature: json.main.temp,
+        name: json.weather[0].main,
+        isLoaded: true
+      })
     })
   }
 
   render() {
-    const { isLoaded, error } = this.state;
+    const { isLoaded, error, temperature , name} = this.state;
     return (
       <View style={styles.container}>
         <StatusBar hidden={true}/>
         {isLoaded ? ( 
-           <Weather />
+           <Weather weatherName={'Mist'} temp={Math.floor(temperature - 273.15)}/>
           ) : (
             <View style={styles.loading}>
               <Text style={styles.loadingText}>Getting the Weather Info</Text>
