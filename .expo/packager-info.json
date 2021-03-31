@@ -3,8 +3,8 @@
   "expoServerPort": 19000,
   "packagerPort": 19000,
   "packagerPid": null,
-  "expoServerNgrokUrl": "https://qn-nkx.anonymous.react-native-weather.exp.direct",
-  "packagerNgrokUrl": "https://packager.qn-nkx.anonymous.react-native-weather.exp.direct",
-  "ngrokPid": 21489,
+  "expoServerNgrokUrl": null,
+  "packagerNgrokUrl": null,
+  "ngrokPid": null,
   "webpackServerPort": null
 }
